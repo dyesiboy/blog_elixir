@@ -1,4 +1,4 @@
-defmodule Blog.Account do
+defmodule Blog.Accounts do
   @moduledoc """
   The Account context.
   """
@@ -6,7 +6,7 @@ defmodule Blog.Account do
   import Ecto.Query, warn: false
   alias Blog.Repo
 
-  alias Blog.Account.User
+  alias Blog.Accounts.User
 
   @doc """
   Returns the list of users.
