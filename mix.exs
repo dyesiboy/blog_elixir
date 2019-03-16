@@ -44,7 +44,8 @@ defmodule Blog.MixProject do
       {:comeonin, "~> 5.1"},
       {:argon2_elixir, "~> 2.0"},
       {:absinthe, "~> 1.4"},
-      {:absinthe_plug, "~> 1.4"}
+      {:absinthe_plug, "~> 1.4"},
+      {:guardian, "~> 1.2"}
     ]
   end
 
