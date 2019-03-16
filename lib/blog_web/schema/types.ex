@@ -1,7 +1,7 @@
-defmodule Blog.Schema.Types do
+defmodule BlogWeb.Schema.Types do
   use Absinthe.Schema.Notation
 
-  alias Blog.Schema.Types
+  alias BlogWeb.Schema.Types
 
   import_types(Types.UserType)
 end

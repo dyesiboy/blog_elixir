@@ -1,4 +1,4 @@
-defmodule Blog.Schema.Types.UserType do
+defmodule BlogWeb.Schema.Types.UserType do
   use Absinthe.Schema.Notation
 
   object :user_type do
