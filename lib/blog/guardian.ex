@@ -3,7 +3,7 @@ defmodule Blog.Guardian do
 
   alias Blog.Accounts
 
-  def subject_for_token(user, _claims) do
+  def subject_for_token(%Accounts.User{} = user, _claims) do
     {:ok, to_string(user.id)}
   end
 
@@ -12,5 +12,9 @@ defmodule Blog.Guardian do
       nil -> {:error, :resource_not_found}
       user -> {:ok, user}
     end
+  end
+
+  def resource_from_claims(_claims) do
+	{:error, :reason_for_error}
   end
 end

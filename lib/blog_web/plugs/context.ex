@@ -11,9 +11,9 @@ defmodule BlogWeb.Plugs.Context do
   end
 
   defp build_context(conn) do
-    with ["Bearer " <> token] <- get_req_header(conn, "Autorization"),
-         {:ok, claim} <- Blog.Guardian.decode_and_verify(token),
-         {:ok, user} <- Blog.Guardian.resource_from_claims(token) do
+    with ["Bearer " <> token] <- get_req_header(conn, "authorization"),
+         {:ok, claims} <- Blog.Guardian.decode_and_verify(token),
+         {:ok, user} <- Blog.Guardian.resource_from_claims(claims) do
           %{current_user: user}
     else
       _ -> %{}
