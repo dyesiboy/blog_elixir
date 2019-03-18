@@ -27,10 +27,11 @@ defmodule BlogWeb.Schema do
       resolve(&Resolvers.SessionResolver.login_user/3)
     end
 
-    @desc "Post Content"
+    @desc "Create a post"
     field :create_post, type: :post_type do
       arg(:input, non_null(:post_input_type))
-      resolve(&Resolvers.ContentResolver.create_post/3)
+      middleware(Middleware.Authorize, :any)
+      resolve(&Resolvers.PostResolver.create_post/3)
     end
   end
 

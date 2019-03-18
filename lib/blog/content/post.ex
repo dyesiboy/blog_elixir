@@ -2,7 +2,7 @@ defmodule Blog.Content.Post do
   use Ecto.Schema
   import Ecto.Changeset
 
-  alias BlogWeb.Accounts.User
+  alias Blog.Accounts.User
 
   schema "posts" do
     field :title, :string
