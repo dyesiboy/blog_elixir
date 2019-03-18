@@ -2,9 +2,8 @@ defmodule BlogWeb.Schema.Middleware.Authorize do
   @behavious Absinthe.Middleware
 
   def call(resolution, role) do
-    with %{current_user: current_user} <- resolution_context,
-         true <- correct_role?(current_user, role) do
-    do
+    with %{current_user: current_user} <- resolution.context,
+        true <- correct_role?(current_user, role) do
       resolution
     else
       _ ->
