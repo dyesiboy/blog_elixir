@@ -1,7 +1,8 @@
 defmodule BlogWeb.Resolvers.UserResolver do
   alias Blog.Accounts
 
-  def users(_parent, _args, _resolution) do
+  def users(_, _, %{context: context}) do
+	IO.inspect(context)
     {:ok, Accounts.list_users()}
 
   end

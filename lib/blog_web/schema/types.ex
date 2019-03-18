@@ -4,4 +4,5 @@ defmodule BlogWeb.Schema.Types do
   alias BlogWeb.Schema.Types
 
   import_types(Types.UserType)
+  import_types(Types.SessionType)
 end
