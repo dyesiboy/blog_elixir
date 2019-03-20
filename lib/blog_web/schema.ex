@@ -33,6 +33,13 @@ defmodule BlogWeb.Schema do
       middleware(Middleware.Authorize, :any)
       resolve(&Resolvers.PostResolver.create_post/3)
     end
+
+    @desc "Create a comment"
+    field :create_comment, type: :comment_type do
+      arg(:input, non_null(:comment_input_type))
+      middleware(Middleware.Authorize, :any)
+      resolve(&Resolvers.CommentResolver.create_comment/3)
+    end
   end
 
 end
