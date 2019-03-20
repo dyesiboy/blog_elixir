@@ -8,8 +8,6 @@ defmodule Blog.Content.Comment do
     field :content, :string
     belongs_to(:user, User)
     belongs_to(:post, Post)
-    field :user_id, :id
-    field :post_id, :id
 
     timestamps()
   end
