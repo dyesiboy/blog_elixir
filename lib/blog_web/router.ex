@@ -3,9 +3,14 @@ defmodule BlogWeb.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
+    plug BlogWeb.Plugs.Context
   end
 
-  scope "/api", BlogWeb do
+  scope "/api" do
     pipe_through :api
+
+    forward "/graphiql", Absinthe.Plug.GraphiQL, schema: BlogWeb.Schema,  json_codec: Jason
+    forward "/", Absinthe.Plug, schema: BlogWeb.Schema
+
   end
 end
