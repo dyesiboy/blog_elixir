@@ -9,7 +9,7 @@ defmodule Blog.Content.Comment do
     belongs_to(:user, User)
     belongs_to(:post, Post)
     field :user_id, :id
-    field :post, :id
+    field :post_id, :id
 
     timestamps()
   end
@@ -18,6 +18,6 @@ defmodule Blog.Content.Comment do
   def changeset(comment, attrs) do
     comment
     |> cast(attrs, [:content, :user_id, :post_id])
-    |> validate_required([:content])
+    |> validate_required([:content, :user_id, :post_id])
   end
 end
